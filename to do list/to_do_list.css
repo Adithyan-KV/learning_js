@@ -124,3 +124,38 @@ li{
     /* border:solid 1px #9d9d9d; */
     box-shadow: 0px 0px 1px #9d9d9d;
 }
+
+@media only screen and (max-width: 600px) {
+    .container{
+        height: 95%;
+        width:90%;
+    }
+
+    fieldset legend{
+        margin:1em 0px;
+        text-align: center;
+        width:100%;
+        transform:translateX(0%);
+    }
+
+    .input-container{
+        height:2em;
+    }
+
+    .container input{
+        width:90%;
+    }
+
+    fieldset button{
+        width:10%;
+    }
+
+    .list-container{
+        max-height: 65vh;
+    }
+
+    li{
+        margin: 0px 0px 0px 5px;
+        width:96%;
+    }
+}
