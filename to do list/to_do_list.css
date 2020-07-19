@@ -109,6 +109,15 @@ fieldset button:valid{
     list-style: none;
 }
 
+
+/*checkbox*/
+.list li input,label{
+    box-sizing: border-box;
+    height: 1em;
+    width:auto;
+    display:inline-block;
+}
+
 li{
     box-sizing: border-box;
     color: #4b4b4b;

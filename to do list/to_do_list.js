@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded',()=>{
     document.querySelector('#task-input').onsubmit=addElement;
+    checkbox=document.querySelector("input[name='task-completed']");
+    checkbox.onclick = strikeOff;
 });
 
 addElement=()=>{
-    input = document.querySelector("#input-entry").value;
+    let input = document.querySelector("#input-entry").value;
     //to prevent empty inputs making it into the list
     if(input!=""){
         li = document.createElement('li');
@@ -15,4 +17,9 @@ addElement=()=>{
     else{
         return false;
     }
+};
+
+//not using arrow function as i need to use "this"
+function strikeOff(){
+    alert(this.parentNode);
 };
