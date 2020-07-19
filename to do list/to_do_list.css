@@ -118,6 +118,46 @@ fieldset button:valid{
     display:inline-block;
 }
 
+
+/*delete button*/
+.list li button{
+    position: absolute;
+    width:2%;
+    /* to maintain square aspect ratio keep padding and width same*/
+    padding-top:2%;
+    font-weight: bold;
+    background-image:url('./images/cross.svg');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+
+.list li button:hover{
+    width:2.1%;
+    padding-top:2.1%;
+    outline:none;
+}
+
+.list li button:active{
+    background-size:90%;
+    outline:none;
+}
+
+.list li button:valid{
+    outline:none;
+}
+
+.list label{
+    width:85%;
+    margin-left: 1em;
+    font-weight: bold;
+    color:#777777;
+}
+
 li{
     box-sizing: border-box;
     color: #4b4b4b;
@@ -127,7 +167,7 @@ li{
     padding:1em;
     font-size:1em;
     font-family:'Helvetica',sans-serif;
-    font-color:#8b8b8b;
+    color:#8b8b8b;
     text-decoration:none;;
     background-color:#e9e9e9;
     /* border:solid 1px #9d9d9d; */
