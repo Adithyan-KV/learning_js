@@ -32,6 +32,7 @@ addElement=()=>{
         let button=document.createElement('button');
         button.type='submit';
         button.name='delete-task';
+        button.innerHTML = '&times';
         button.addEventListener('click',deleteTask)
         li.appendChild(button);
 
