@@ -121,10 +121,8 @@ fieldset button:valid{
 
 /*delete button*/
 .list li button{
-    position: absolute;
-    width:2%;
-    /* to maintain square aspect ratio keep padding and width same*/
-    padding-top:2%;
+    width:1em;
+    height:1em;
     font-weight: bold;
     background-image:url('./images/cross.svg');
     background-size:contain;

@@ -18,8 +18,24 @@ addElement=()=>{
     let input = document.querySelector("#input-entry").value;
     //to prevent empty inputs making it into the list
     if(input!=""){
-        li = document.createElement('li');
-        li.innerHTML = input;
+        //creating the HTML element to be added with the right markup
+        let li = document.createElement('li');
+        let checkbox=document.createElement('input')
+        checkbox.type="checkbox";
+        checkbox.name="task-completed";
+        checkbox.addEventListener('click',strikeOff);
+        li.appendChild(checkbox);
+        let label=document.createElement('label');
+        label.htmlFor='task';
+        label.innerHTML=input;
+        li.appendChild(label);
+        let button=document.createElement('button');
+        button.type='submit';
+        button.name='delete-task';
+        button.addEventListener('click',deleteTask)
+        li.appendChild(button);
+
+        //adding the button to the document
         document.querySelector(".list").append(li);
         document.querySelector('#input-entry').value='';
         return false;
