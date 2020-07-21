@@ -1,45 +1,53 @@
 document.addEventListener('DOMContentLoaded',()=>{
-    //adding Component
-    document.querySelector('button').addEventListener('click',addComponent);
-});
 
-addComponent = () =>{
-    let component=document.createElement('counter-component');
-    let container=document.querySelector('.counter');
-    container.appendChild(component);
-};
+});
 
 class CounterComponent extends HTMLElement{
     constructor(){
         super();
+
+        //state of counter
         this.count = 0;
     };
 
     connectedCallback(){
+
         //adding the HTML content of the counter
-        let content_markup=`<div class=count>${this.count}</div>
-                            <button class='button' name='increment' id='increment'>+</button>
-                            <button class='button' name='decrement' id='decrement'>-</button>`;
+        var content_markup=`<div class='container'>
+                                <h2>Counter</h2>
+                                <div class=count>${this.count}</div>
+                                <div class='button-container'>
+                                    <button type='button' name='increment' id='increment'>+</button>
+                                    <button type='button' name='decrement' id='decrement'>-</button>
+                                    <br>
+                                    <button type='button' name='reset' id='reset'>Reset</button>
+                                </div>
+                            </div>`
+
+
         this.innerHTML=content_markup;
 
         //incrementing
-        let incr_button=this.querySelector("#increment");
-        incr_button.addEventListener('click',()=>{
+        let incr_btn=this.querySelector("#increment");
+        incr_btn.addEventListener('click',()=>{
             this.count++;
             let count =  this.querySelector('.count');
             count.innerHTML = this.count;
         });
 
         //decrementing
-        let decr_button=this.querySelector('#decrement');
-        decr_button.addEventListener('click',()=>{
+        let decr_btn=this.querySelector('#decrement');
+        decr_btn.addEventListener('click',()=>{
             this.count--;
             let count = this.querySelector('.count');
             count.innerHTML = this.count;
         });
 
-
-
+        let reset_btn=this.querySelector('#reset');
+        reset_btn.addEventListener('click',()=>{
+            this.count=0;
+            this.querySelector('.count').innerHTML = this.count;
+        });
     };
 };
 
