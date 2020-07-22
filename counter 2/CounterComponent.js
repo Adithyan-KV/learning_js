@@ -1,7 +1,3 @@
-document.addEventListener('DOMContentLoaded',()=>{
-
-});
-
 class CounterComponent extends HTMLElement{
     constructor(){
         super();
@@ -15,46 +11,47 @@ class CounterComponent extends HTMLElement{
 
         //state of counter
         this.count = 0;
+        //setting default value of counter
+        this.shadowRoot.querySelector('.count').innerHTML=this.count;
     };
 
     connectedCallback(){
         console.log("element added to DOM");
+
+        let counter = this.shadowRoot.querySelector('.count');
+        let count = this.count;
+
+        //increment Counter
+        let incr_btn = this.shadowRoot.querySelector('#increment');
+        incr_btn.addEventListener('click',incrementCounter);
+
+        //decrement Counter
+        let decr_btn = this.shadowRoot.querySelector('#decrement');
+        decr_btn.addEventListener('click',decrementCounter);
+
+        let reset_btn = this.shadowRoot.querySelector('#reset');
+        reset_btn.addEventListener('click',resetCounter);
+
+
+        function incrementCounter(){
+            count++;
+            counter.innerHTML=count;
+        }
+
+        function decrementCounter(){
+            count--;
+            counter.innerHTML=count;
+        }
+
+        function resetCounter(){
+            count=0;
+            counter.innerHTML=count
+        }
     }
 
     disconnectedCallback(){
         console.log("element removed from DOM");
     }
-
-    // connectedCallback(){
-    //
-    //     //adding the HTML content of the counter
-    //     var content_markup=``
-    //
-    //
-    //     this.innerHTML=content_markup;
-    //
-    //     //incrementing
-    //     let incr_btn=this.querySelector("#increment");
-    //     incr_btn.addEventListener('click',()=>{
-    //         this.count++;
-    //         let count =  this.querySelector('.count');
-    //         count.innerHTML = this.count;
-    //     });
-    //
-    //     //decrementing
-    //     let decr_btn=this.querySelector('#decrement');
-    //     decr_btn.addEventListener('click',()=>{
-    //         this.count--;
-    //         let count = this.querySelector('.count');
-    //         count.innerHTML = this.count;
-    //     });
-    //
-    //     let reset_btn=this.querySelector('#reset');
-    //     reset_btn.addEventListener('click',()=>{
-    //         this.count=0;
-    //         this.querySelector('.count').innerHTML = this.count;
-    //     });
-    // };
 };
 
 window.customElements.define('counter-component',CounterComponent);
