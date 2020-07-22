@@ -1,4 +1,67 @@
-h1{
-    font-family:'Helvetica',sans-serif;
-    color:coral;
+/* color palette for repeated colors */
+.container{
+    /* colors for light theme */
+    --light-background-color:#c9c9c9;
+    --light-text-color:#818181;
+    --light-hover-color: #a2a0a0;
+    --light-active-color: #747171;
+    --light-hover-text-color: #d7d0d0;
+
+    /* colors for dark theme */
+    --dark-background-color:#4b4b4b;
 }
+
+h2{
+    font-family: 'Helvetica',sans-serif;
+    font-size:1em;
+    color:green;
+}
+
+.container{
+    display:inline-grid;
+    grid-template-columns:  2em 2em 2em 2em;
+    grid-template-rows:2em;
+    align-content:center;
+    padding:0px;
+    margin:0px;
+    width:auto;
+}
+
+button{
+    outline:none;
+    box-sizing: border-box;
+    background-color: var(--light-background-color);
+    color:var(--light-text-color);
+    border:none;
+}
+
+button:hover{
+    background-color:var(--light-hover-color);
+    color:var(--light-hover-text-color);
+}
+
+button:active{
+    /* to prevent weird chrome outline */
+    outline:none;
+    /* to prevent weird button animation on mozilla */
+    padding:0px;
+    background-color:var(--light-active-color);
+}
+
+button:valid{
+    /* to prevent weird chrome outline */
+    outline:none;
+}
+
+.count{
+    display:flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
+}
+
+/* button:hover{
+    color:
+} */
