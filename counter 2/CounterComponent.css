@@ -8,16 +8,19 @@
     --light-hover-text-color: #d7d0d0;
 
     /* colors for dark theme */
-    --dark-background-color:#4b4b4b;
-}
+    --dark-background-color:#444242;
+    --dark-text-color:#8f8b8b;
+    --dark-hover-color: #343333;
+    --dark-active-color: #252424;
+    --dark-hover-text-color: #d7d0d0;
 
-h2{
-    font-family: 'Helvetica',sans-serif;
-    font-size:1em;
-    color:green;
-}
+    /*colors that are actually used. references can be changed to light or dark theme colors using JS*/
+    --background-color: var(--light-background-color);
+    --text-color:var(--light-text-color);
+    --hover-color:var(--light-hover-color);
+    --hover-text-color:var(--light-hover-text-color);
+    --active-color:var(--light-active-color);
 
-.container{
     display:inline-grid;
     grid-template-columns:  2em 2em 2em 2em;
     grid-template-rows:2em;
@@ -27,17 +30,23 @@ h2{
     width:auto;
 }
 
+h2{
+    font-family: 'Helvetica',sans-serif;
+    font-size:1em;
+    color:green;
+}
+
 button{
     outline:none;
     box-sizing: border-box;
-    background-color: var(--light-background-color);
-    color:var(--light-text-color);
+    background-color: var(--background-color);
+    color:var(--text-color);
     border:none;
 }
 
 button:hover{
-    background-color:var(--light-hover-color);
-    color:var(--light-hover-text-color);
+    background-color:var(--hover-color);
+    color:var(--hover-text-color);
 }
 
 button:active{
@@ -45,7 +54,7 @@ button:active{
     outline:none;
     /* to prevent weird button animation on mozilla */
     padding:0px;
-    background-color:var(--light-active-color);
+    background-color:var(--active-color);
 }
 
 button:valid{
@@ -58,10 +67,6 @@ button:valid{
     box-sizing: border-box;
     justify-content: center;
     align-items: center;
-    background-color: var(--light-background-color);
-    color: var(--light-text-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
-
-/* button:hover{
-    color:
-} */
