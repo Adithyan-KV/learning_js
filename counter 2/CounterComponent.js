@@ -55,8 +55,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             reset_btn.addEventListener('click',resetCounter);
 
             let theme=this.getAttribute('theme');
-            console.log(theme);
-            setTimeout(()=>{this.setTheme(theme)},0.1);
+            this.setTheme(theme);
 
 
 
