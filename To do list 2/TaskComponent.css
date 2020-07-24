@@ -1,0 +1,58 @@
+:host{
+    --background-color:#525252;
+    --darker-hints: #464545;
+    --lighter-hints: #c6c2c2;
+    --darkest-hints: #262626;
+    --colored-accents: #8554b4;
+    --darker-accents: #654187;
+}
+
+.task-container{
+    display: grid;
+    grid-template-columns: 2em auto 2em;
+    margin-top:2em;
+    width:100%;
+    height:3em;
+    background-color:var(--background-color);
+    border-bottom:solid 1px var(--darker-hints);
+}
+
+label{
+    display: flex;
+    padding-left:1em;
+    align-items: center;
+    color:var(--lighter-hints);
+    font-family: 'Helvetica',sans-serif;
+    height: 100%;
+    /* background-color:green; */
+}
+
+input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:1em;
+    width:1em;
+    margin: auto;
+}
+
+button{
+    background-color: transparent;
+    color:var(--lighter-hints);
+    font-weight: bold;
+    border:0px;
+}
+
+button:hover{
+    background-color: var(--darker-hints);
+}
+
+button:active{
+    outline:none;
+    padding:0px;
+    background-color: var(--darkest-hints);
+}
+
+button:valid{
+    outline:none;
+}
