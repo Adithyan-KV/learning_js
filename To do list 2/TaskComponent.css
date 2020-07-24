@@ -3,8 +3,10 @@
     --darker-hints: #464545;
     --lighter-hints: #c6c2c2;
     --darkest-hints: #262626;
+    --disabled-text: #8f8a8a;
     --colored-accents: #8554b4;
     --darker-accents: #654187;
+    --lighter-accents: #a478cf;
 }
 
 .task-container{
@@ -24,16 +26,49 @@ label{
     color:var(--lighter-hints);
     font-family: 'Helvetica',sans-serif;
     height: 100%;
+    font-weight: bold;
     /* background-color:green; */
 }
 
+
+/* custom styling checkbox by making original checkbox invisible and superimposing it with span element */
 input{
+    opacity:2%;
+    z-index: 100;
+}
+
+.checkbox{
     display: flex;
     justify-content: center;
     align-items: center;
-    height:1em;
-    width:1em;
+    height:0.9em;
+    width:0.9em;
     margin: auto;
+    padding:0px;
+}
+
+.checkbox span{
+    position: absolute;
+    border:1px solid var(--lighter-hints);
+    border-radius:0.2em;
+    height:0.9em;
+    width:0.9em;
+}
+
+.checkbox input:checked ~ span{
+    content:"";
+    background-color:var(--colored-accents);
+    border:1px solid var(--lighter-accents);
+}
+
+/* check mark custom */
+.checkbox input:checked ~ span::after{
+    font-size:0.8em;
+    position:absolute;
+    content:'\002714';
+    color:var(--lighter-hints);
+    bottom:-0.1em;
+    right:0.15em;
 }
 
 button{
@@ -48,6 +83,7 @@ button:hover{
 }
 
 button:active{
+    border:none;
     outline:none;
     padding:0px;
     background-color: var(--darkest-hints);
@@ -55,4 +91,5 @@ button:active{
 
 button:valid{
     outline:none;
+    border:none;
 }

@@ -3,8 +3,10 @@
     --darker-hints: #464545;
     --lighter-hints: #c6c2c2;
     --darkest-hints: #262626;
+    --disabled-text: #8f8a8a;
     --colored-accents: #8554b4;
     --darker-accents: #654187;
+    --lighter-accents: #a478cf;
 }
 
 p{
@@ -70,9 +72,5 @@ form button:hover{
 form button:active{
     padding:auto;
     background-color:var(--darker-accents);
-    outline:none;
-}
-
-form button:valid{
     outline:none;
 }

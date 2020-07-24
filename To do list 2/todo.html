@@ -16,18 +16,21 @@
                         <input type='text' name='task' id='task-input' placeholder="Add a task"/>
                         <button type='button' name='add-task'>+</button>
                     </form>
-                    <task-component>
-
-                    </task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
+                    <task-component></task-component>
                 </div>
             </div>
         </template>
         <template class='task-component'>
             <link rel='stylesheet' href='./TaskComponent.css' />
             <div class='task-container'>
-                <input type='checkbox' name='task-completed' />
+                <div class=checkbox>
+                    <input type='checkbox' name='task-completed' /><span></span>
+                </div>
                 <label for='task' id='task-text'>Random task</label>
-                <button type='button'>&#8230;</button>
+                <button type='button' name='close'>&times</button>
+                <!-- &#8230; dropdown character. will be integrated later -->
             </div>
         </template>
         <todo-component></todo-component>
