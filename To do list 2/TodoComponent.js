@@ -4,13 +4,38 @@ document.addEventListener('DOMContentLoaded',()=>{
         constructor(){
             super();
 
+            //attaching shadowDOM
             this.attachShadow({mode:'open'});
+
+            //adding HTML markup from template
             let template = document.querySelector('.todo-component');
             this.shadowRoot.appendChild(template.content.cloneNode(true));
         };
 
         connectedCallback(){
             console.log('Element attached to DOM');
+            let shadow=this.shadowRoot
+
+            //adding new items
+            let form=shadow.querySelector('form');
+            form.addEventListener('submit',addItem);
+
+            function addItem(event){
+                //to prevent refreshing the page on adding new element
+                event.preventDefault();
+                let taskLabel = shadow.querySelector('#task-input').value;
+                if(taskLabel){
+                    let list=shadow.querySelector('.list-container');
+                    let listItem=document.createElement('task-component');
+                    let slotItem=document.createElement('div');
+                    slotItem.innerHTML= taskLabel;
+                    slotItem.setAttribute('slot','task-name');
+                    listItem.appendChild(slotItem);
+                    list.appendChild(listItem);
+                    //reseting to empty form
+                    shadow.querySelector('#task-input').value='';
+                }
+            };
         };
 
         disconnectedCallback(){
@@ -24,6 +49,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         constructor(){
             super();
 
+            //attaching shadowDOM and adding markup
             this.attachShadow({mode:'open'});
             let template=document.querySelector('.task-component');
             this.shadowRoot.appendChild(template.content.cloneNode(true));
@@ -52,6 +78,10 @@ document.addEventListener('DOMContentLoaded',()=>{
             let close_btn=this.shadowRoot.querySelector("button[name='close']");
             close_btn.addEventListener('click',()=>this.remove());
 
+        }
+
+        disconnectedCallback(){
+            console.log('Removed from DOM');
         }
     };
 

@@ -7,6 +7,8 @@
     </head>
     <body>
         Stuff outside shadow DOM
+
+        <!-- template for todo list component -->
         <template class='todo-component'>
             <link rel='stylesheet' href='./TodoComponent.css' />
             <div class='container'>
@@ -14,21 +16,23 @@
                 <div class='inside-container'>
                     <form method='post' autocomplete='off'>
                         <input type='text' name='task' id='task-input' placeholder="Add a task"/>
-                        <button type='button' name='add-task'>+</button>
+                        <button type='submit' name='add-task'>+</button>
                     </form>
-                    <task-component></task-component>
-                    <task-component></task-component>
-                    <task-component></task-component>
+                    <div class=list-container>
+                    
+                    </div>
                 </div>
             </div>
         </template>
+
+        <!-- template for list item component -->
         <template class='task-component'>
             <link rel='stylesheet' href='./TaskComponent.css' />
             <div class='task-container'>
                 <div class=checkbox>
                     <input type='checkbox' name='task-completed' /><span></span>
                 </div>
-                <label for='task' id='task-text'>Random task</label>
+                <label for='task' id='task-text'><slot name='task-name'>text</slot></label>
                 <button type='button' name='close'>&times</button>
                 <!-- &#8230; dropdown character. will be integrated later -->
             </div>
